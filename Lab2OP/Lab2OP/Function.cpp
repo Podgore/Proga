@@ -6,7 +6,6 @@ using namespace std;
 
 void GetUserTime(tm& time) {
     int year, month, day, hour, minute, second;
-    cout << "Enter the time of begining and ending (YYYY MM DD HH MM SS): ";
     cin >> year >> month >> day >> hour >> minute >> second;
     time.tm_year = year - 1900;
     time.tm_mon = month - 1;
@@ -48,4 +47,70 @@ void PrintCallDetails(tm& StartTime, tm& EndTime, double cost) {
     strftime(buffer, sizeof(buffer), "%c", &EndTime);
     cout << "Data end: " << buffer << endl;
     cout << "Cost: " << cost << "$" << endl;
+}
+
+
+void ReadCallsFromFile()
+{
+    string filename;
+    cout << "Type a filename (in format text.bin): " << endl;
+    cin >> filename;
+
+    ifstream read_file(filename, ios::binary);
+    if (!read_file.is_open()) {
+        cerr << "Failed to open file: " << filename << endl;
+        return;
+    }
+
+    while (true) {
+        tm StartTime;
+        tm EndTime;
+        double cost;
+
+        read_file.read((char*)&StartTime, sizeof(StartTime));
+        read_file.read((char*)&EndTime, sizeof(EndTime));
+        read_file.read((char*)&cost, sizeof(cost));
+
+        if (read_file.eof()) {
+            break;
+        }
+
+        PrintCallDetails(StartTime, EndTime, cost);
+    }
+    read_file.close();
+}
+
+void AddCall()
+{
+    string filename;
+    cout << "Type a filename (in format text.bin): " << endl;
+    cin >> filename;
+    ofstream file(filename, ios::binary);
+    if (!file.is_open()) {
+        cerr << "Failed to open file: " << filename << endl;
+        return;
+    }
+
+    bool proceed = true;
+    while (proceed) {
+        tm startTime;
+        cout << "Type the data of beginning(in format YYYY MM DD HH MM SS): ";
+        GetUserTime(startTime);
+
+        tm endTime;
+        cout << "Type the data of ending(in format YYYY MM DD HH MM SS): ";
+        GetUserTime(endTime);
+
+        double cost = CalculateCost(startTime, endTime);
+
+        WriteCallToFile(file, startTime, endTime, cost);
+
+        PrintCallDetails(startTime, endTime, cost);
+
+        cout << "Do you want to add another call? (y/n)" << endl;
+        char answer;
+        cin >> answer;
+        proceed = (answer == 'y' || answer == 'Y');
+    }
+    file.close();
 }
