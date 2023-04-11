@@ -1,6 +1,6 @@
 #include <fstream>
 #include <iostream> 
-#include <ctime>
+
 #include "Function.h"
 using namespace std;
 
