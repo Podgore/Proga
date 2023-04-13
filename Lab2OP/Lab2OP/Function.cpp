@@ -85,7 +85,7 @@ void AddCall()
     string filename;
     cout << "Type a filename (in format text.bin): " << endl;
     cin >> filename;
-    ofstream file(filename, ios::binary);
+    ofstream file(filename, ios::binary | ios::app);
     if (!file.is_open()) {
         cerr << "Failed to open file: " << filename << endl;
         return;
