@@ -127,12 +127,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="5Lib.cpp" />
     <ClCompile Include="Lab5OP.cpp" />
     <ClCompile Include="TPrism.cpp" />
     <ClCompile Include="TPrism3.cpp" />
     <ClCompile Include="TPrism4.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="5Lib.h" />
     <ClInclude Include="TPrism.h" />
     <ClInclude Include="TPrism3.h" />
     <ClInclude Include="TPrism4.h" />

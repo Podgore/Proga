@@ -3,13 +3,14 @@
 
 using namespace std;
 
-class TPrism3 : TPrism
+class TPrism3 : public TPrism
 {
 private:
 	double Height;
 	double TriagleSide;
 public:
 	TPrism3() {};
+
 	TPrism3(double Height, double TriagleSide);
 
 

@@ -1,7 +1,7 @@
 #pragma once
 #include "TPrism.h"
 
-class TPrism4 : TPrism
+class TPrism4 : public TPrism
 {
 private:
 	double Height;
