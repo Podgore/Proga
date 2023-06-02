@@ -1,9 +1,11 @@
 ﻿#include <iostream>
+#include <queue>
 #include "Binar.h"
 #include "Binar.cpp"
 
 
 using namespace std;
+
 
 int main()
 {
@@ -14,13 +16,14 @@ int main()
         cout << "What do you want to do?" << endl;
         cout << "1 - Add new value" << endl;
         cout << "2 - Get size of binary tree" << endl;
-        cout << "3 - Show tree content(using an iterator)" << endl;
-        cout << "4 - Clear tree" << endl;
-        cout << "5 - Exit" << endl;
+        cout << "3 - Tree traversal" << endl;
+        cout << "4 - Print tree content" << endl;
+        cout << "5 - Clear tree" << endl;
+        cout << "6 - Exit" << endl;
         cin >> choice;
         switch (choice)
         {
-        case 1: 
+        case 1:
             cout << "Type Value" << endl;
             cin >> value;
             tree.Push(value);
@@ -36,21 +39,15 @@ int main()
             cout << endl;
             continue;
         case 4:
-            tree.Clear();
+            tree.Print();
             continue;
         case 5:
+            tree.Clear();
+            continue;
+        case 6:
             return 0;
         }
 
     }
-    
-    
-    
-    
-
-
     return 0;
 }
-
-
-

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stack>
 #include "Binar.h"
 
 
@@ -41,6 +42,38 @@ void BinaryTree<T>::Push(T data)
         }
     }
 }
+
+template<typename T>
+void BinaryTree<T>::Print()
+{
+    if (root == nullptr) {
+        cout << "Binary tree is empty." << endl;
+        return;
+    }
+
+    stack<pair<Node<T>*, string>> nodesStack;
+    nodesStack.push(make_pair(root, ""));
+
+    while (!nodesStack.empty()) {
+        pair<Node<T>*, string> current = nodesStack.top();
+        nodesStack.pop();
+
+        for (int i = 0; i < current.second.length(); i++) {
+            cout << "  "; // Indentation for better visualization
+        }
+
+        cout << current.first->data << endl;
+
+        if (current.first->pRight != nullptr) {
+            nodesStack.push(make_pair(current.first->pRight, current.second + "  "));
+        }
+        if (current.first->pLeft != nullptr) {
+            nodesStack.push(make_pair(current.first->pLeft, current.second + "  "));
+        }
+    }
+}
+
+
 
 template<typename T>
 void BinaryTree<T>::Clear()

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stack>
 #pragma once
 
 using namespace std;
@@ -85,4 +86,6 @@ public:
     int GetSize() { return Size; }
     Iterator begin();
     Iterator end();
+    void Print();
+    void inOrderTraversal();
 };
