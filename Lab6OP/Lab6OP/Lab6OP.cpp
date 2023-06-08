@@ -1,5 +1,4 @@
 ﻿#include <iostream>
-#include <queue>
 #include "Binar.h"
 #include "Binar.cpp"
 
@@ -33,10 +32,7 @@ int main()
             continue;
         case 3:
             cout << "Tree contents: ";
-            for (auto it = tree.begin(); it != tree.end(); ++it) {
-                cout << *it << " ";
-            }
-            cout << endl;
+            tree.inOrderTraversal();
             continue;
         case 4:
             tree.Print();

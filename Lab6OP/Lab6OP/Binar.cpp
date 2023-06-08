@@ -59,7 +59,7 @@ void BinaryTree<T>::Print()
         nodesStack.pop();
 
         for (int i = 0; i < current.second.length(); i++) {
-            cout << "  "; // Indentation for better visualization
+            cout << "  ";
         }
 
         cout << current.first->data << endl;
@@ -72,6 +72,41 @@ void BinaryTree<T>::Print()
         }
     }
 }
+
+template<typename T>
+void BinaryTree<T>::inOrderTraversal()
+{
+    if (root == nullptr) {
+        cout << "Binary tree is empty." << endl;
+        return;
+    }
+
+    cout << "Tree contents: ";
+    stack<Node<T>*> nodesStack;
+    Node<T>* current = root;
+    Node<T>* lastVisited = nullptr;
+
+    while (!nodesStack.empty() || current != nullptr) {
+        if (current != nullptr) {
+            nodesStack.push(current);
+            current = current->pLeft;
+        }
+        else {
+            Node<T>* topNode = nodesStack.top();
+            if (topNode->pRight != nullptr && topNode->pRight != lastVisited) {
+                current = topNode->pRight;
+            }
+            else {
+                cout << topNode->data << " ";
+                lastVisited = topNode;
+                nodesStack.pop();
+            }
+        }
+    }
+
+    cout << endl;
+}
+
 
 
 
@@ -111,12 +146,9 @@ void BinaryTree<T>::Clear()
 
 template<typename T>
 typename BinaryTree<T>::Iterator BinaryTree<T>::begin() {
-    Node<T>* current = root;
-    while (current != nullptr && current->pLeft != nullptr) {
-        current = current->pLeft;
-    }
-    return Iterator(current);
+    return Iterator(root);
 }
+
 
 template<typename T>
 typename BinaryTree<T>::Iterator BinaryTree<T>::end() {
