@@ -1,0 +1,7 @@
+﻿  MyForm.cpp
+E:\C\cs\LabOP\Lab7-8OP\StepByStep\MyForm.h(234,45): warning C4101: ex: неиспользованная локальная переменная
+E:\C\cs\LabOP\Lab7-8OP\StepByStep\MyForm.h(237,47): warning C4101: ex: неиспользованная локальная переменная
+  .NETFramework,Version=v4.7.2.AssemblyAttributes.cpp
+  Создание кода...
+  MyForm.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
+  StepByStep.vcxproj -> E:\C\cs\LabOP\Lab7-8OP\x64\Debug\StepByStep.exe

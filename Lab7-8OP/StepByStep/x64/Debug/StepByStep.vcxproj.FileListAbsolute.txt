@@ -1,0 +1,4 @@
+E:\C\cs\StepByStep\StepByStep\x64\Debug\StepByStep.vcxproj.AssemblyReference.cache
+E:\C\cs\StepByStep\StepByStep\x64\Debug\StepByStep.vcxproj.SuggestedBindingRedirects.cache
+E:\C\cs\LabOP\Lab7-8OP\StepByStep\x64\Debug\StepByStep.vcxproj.AssemblyReference.cache
+E:\C\cs\LabOP\Lab7-8OP\StepByStep\x64\Debug\StepByStep.vcxproj.SuggestedBindingRedirects.cache
